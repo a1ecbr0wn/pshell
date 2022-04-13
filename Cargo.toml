@@ -1,0 +1,18 @@
+[package]
+name = "pshell"
+version = "1.0.0"
+edition = "2021"
+authors = ["Alec Brown <alec@noser.net>"]
+description = "Works out if this is running from inside a shell, and if so, which one."
+rust-version = "1.58"
+license = "Apache-2.0"
+repository = "https://github.com/a1ecbr0wn/pshell"
+homepage = "https://github.com/a1ecbr0wn/pshell"
+readme = "README.md"
+keywords = ["shell", "filesystem", "utility"]
+categories = ["filesystem", "os", "api-bindings"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sysinfo = "0.23.9"

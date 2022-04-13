@@ -5,7 +5,7 @@
 
 # pshell
 
-[![Crates.io](https://img.shields.io/crates/l/pshell)](https://github.com/a1ecbr0wn/pshell/blob/main/LICENSE) [![Crates.io](https://img.shields.io/crates/v/pshell)](https://crates.io/crates/pshell) [![Build Status](https://github.com/a1ecbr0wn/pshell/actions/workflows/build.yml/badge.svg)](https://github.com/a1ecbr0wn/pshell/actions/workflows/build.yml) [![docs.rs](https://img.shields.io/docsrs/pshell)](https://docs.rs/pshell)
+[![Crates.io](https://img.shields.io/crates/l/pshell)](https://github.com/a1ecbr0wn/pshell/blob/main/LICENSE) [![Crates.io](https://img.shields.io/crates/v/pshell)](https://crates.io/crates/pshell) [![Build Status](https://github.com/a1ecbr0wn/pshell/workflows/CI%20Build/badge.svg)](https://github.com/a1ecbr0wn/pshell/actions/workflows/build.yml) [![docs.rs](https://img.shields.io/docsrs/pshell)](https://docs.rs/pshell)
 
 `pshell` answers the question "Is my application running in a shell, and if so, which one".
 

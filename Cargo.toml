@@ -1,6 +1,6 @@
 [package]
 name = "pshell"
-version = "1.0.5"
+version = "1.0.7"
 edition = "2021"
 authors = ["Alec Brown <alec@noser.net>"]
 description = "Works out if this is running from inside a shell, and if so, which one."

@@ -4,7 +4,7 @@ use sysinfo::{Pid, PidExt, ProcessExt, System, SystemExt};
 
 /// Traverses up the parent processes to see if the name of any of them matches a `KNOWN_SHELL`
 pub fn find() -> Option<(String, u32)> {
-    const KNOWN_SHELLS: [&str; 4] = ["bash", "zsh", "fish", "tcsh"];
+    const KNOWN_SHELLS: [&str; 7] = ["bash", "zsh", "fish", "tcsh", "dash", "csh", "ksh"];
 
     if System::IS_SUPPORTED {
         let sys = System::new_all();

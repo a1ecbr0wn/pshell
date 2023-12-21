@@ -1,12 +1,12 @@
 use std::process;
 use sysinfo::Process;
-use sysinfo::{Pid, PidExt, ProcessExt, System, SystemExt};
+use sysinfo::{Pid, System, IS_SUPPORTED_SYSTEM};
 
 /// Traverses up the parent processes to see if the name of any of them matches a `KNOWN_SHELL`
 pub fn find() -> Option<(String, u32)> {
     const KNOWN_SHELLS: [&str; 7] = ["bash", "zsh", "fish", "tcsh", "dash", "csh", "ksh"];
 
-    if System::IS_SUPPORTED {
+    if IS_SUPPORTED_SYSTEM {
         let sys = System::new_all();
         let mut process: Option<&Process> = sys.process(Pid::from_u32(process::id()));
         while process.is_some() {

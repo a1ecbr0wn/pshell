@@ -1,5 +1,5 @@
 ---
-name: Tag Release Build
+name: Release Binaries on Tag
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
 
 jobs:
   tag-release:
-    name: Tag Release Build
-    runs-on: "ubuntu-latest"
+    name: Build tag as a release
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         rust: [stable]
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Toolchain setup
         uses: dtolnay/rust-toolchain@master

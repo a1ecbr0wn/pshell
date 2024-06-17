@@ -5,12 +5,22 @@ on:
   push:
     branches:
       - '**'
-    paths-ignore:
-      - '**/*.md'
-      - 'LICENSE'
-  workflow_dispatch:
+    paths:
+      - '**/*.rs'
+      - 'src/*'
+      - 'Cargo.*'
+      - '.github/workflows/build.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.rs'
+      - 'src/*'
+      - 'Cargo.*'
+      - '.github/workflows/build.yml'
   schedule:
     - cron: '0 0 * * 1'
+  workflow_dispatch:
 
 env:
   RUSTFLAGS: '--deny warnings'

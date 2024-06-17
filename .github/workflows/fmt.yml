@@ -1,4 +1,21 @@
-on: push
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - '**/*.rs'
+      - 'src/*'
+      - '.github/workflows/fmt.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.rs'
+      - 'src/*'
+      - '.github/workflows/fmt.yml'
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
 
 name: rust formatting checks
 

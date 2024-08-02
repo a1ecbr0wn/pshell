@@ -12,9 +12,11 @@ pub fn find() -> Option<(String, u32)> {
         while process.is_some() {
             process = get_parent(&sys, process.unwrap());
             if let Some(shell) = process {
-                if KNOWN_SHELLS.contains(&(shell.name())) {
-                    return Some((shell.name().to_string(), shell.pid().as_u32()));
-                }
+                if let Some(shell_name) = shell.name().to_str() {
+                    if KNOWN_SHELLS.contains(&shell_name) {
+                        return Some((shell_name.to_owned(), shell.pid().as_u32()));
+                    }
+                };
             }
         }
         None

@@ -16,4 +16,4 @@ categories = ["filesystem", "os", "api-bindings"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-sysinfo = "0.31"
+sysinfo = "0.32"

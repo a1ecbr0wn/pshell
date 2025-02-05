@@ -7,7 +7,7 @@
 
 [![Crates.io](https://img.shields.io/crates/l/pshell)](https://github.com/a1ecbr0wn/pshell/blob/main/LICENSE) [![Crates.io](https://img.shields.io/crates/v/pshell)](https://crates.io/crates/pshell) [![Build Status](https://github.com/a1ecbr0wn/pshell/workflows/CI%20Build/badge.svg)](https://github.com/a1ecbr0wn/pshell/actions/workflows/build.yml) [![docs.rs](https://img.shields.io/docsrs/pshell)](https://docs.rs/pshell) [![dependency status](https://deps.rs/repo/github/a1ecbr0wn/pshell/status.svg)](https://deps.rs/repo/github/a1ecbr0wn/pshell)
 
-`pshell` answers the question "Is my application running in a shell, and if so, which one".
+`pshell` answers the question "Is my application running in a shell, and if so, which one?".
 
 Example: you are installing something and want to make changes to the shell and you want to know what changes are required to which shell script.
 

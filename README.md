@@ -37,6 +37,14 @@ To try this out, and check it works OK on your OS/shell combination run the foll
 cargo run --example what_shell
 ```
 
+## Why should you use this crate?
+
+It is a small, simple crate that adds very little to your application size for discovering what shell this is running under by inspecting the name of the parent processes against a limited list of known shells.
+
+## Why should you not use this crate?
+
+You want an all-singing, all-dancing crate that identifies any knowns shell.
+
 ## Contribute
 
 I have created a list of shells where this could be run from, it is not exhaustive, if your shell is not supported, feel free to raise an issue or a PR.

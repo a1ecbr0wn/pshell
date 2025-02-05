@@ -4,7 +4,7 @@ use sysinfo::{Pid, System, IS_SUPPORTED_SYSTEM};
 
 /// Traverses up the parent processes to see if the name of any of them matches a `KNOWN_SHELL`
 pub fn find() -> Option<(String, u32)> {
-    const KNOWN_SHELLS: [&str; 9] = [
+    const KNOWN_SHELLS: [&str; 10] = [
         "bash",
         "zsh",
         "fish",
@@ -14,6 +14,7 @@ pub fn find() -> Option<(String, u32)> {
         "ksh",
         "cmd",
         "powershell",
+        "pwsh",
     ];
 
     if IS_SUPPORTED_SYSTEM {

@@ -35,6 +35,8 @@ jobs:
         env:
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
+          files: |
+            LICENSE
 
       - name: Upload Release Artifacts
         uses: softprops/action-gh-release@v2

@@ -8,14 +8,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  tag-release:
+  release-tag:
     name: Build tag as a release
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        rust: [stable]
-        TARGET:
-          - x86_64-unknown-linux-gnu
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Toolchain setup
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          target: x86_64-unknown-linux-gnu
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v4
+        id: git-cliff
+        with:
+          config: cliff.toml
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: Upload Release Artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: CHANGELOG.md
+          tag_name: "${{ github.ref_name }}"
+          name: "Release ${{ github.ref_name }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+
+  publish-to-crates:
+    name: Publish tag to crates.io
+    needs: release-tag
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -24,8 +56,8 @@ jobs:
       - name: Toolchain setup
         uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: ${{ matrix.rust }}
-          target: ${{ matrix.TARGET }}
+          toolchain: stable
+          target: x86_64-unknown-linux-gnu
 
       - name: Build
         run: cargo build --release

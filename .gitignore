@@ -7,3 +7,6 @@ CHANGELOG.md
 /.vscode
 /.idea
 *.iml
+
+# MacOS
+.DS_Store

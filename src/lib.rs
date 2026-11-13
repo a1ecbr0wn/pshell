@@ -1,6 +1,6 @@
 use std::process;
 use sysinfo::Process;
-use sysinfo::{Pid, System, IS_SUPPORTED_SYSTEM};
+use sysinfo::{Pid, System};
 
 /// Traverses up the parent processes to see if the name of any of them matches a `KNOWN_SHELL`
 pub fn find() -> Option<(String, u32)> {
@@ -17,9 +17,9 @@ pub fn find() -> Option<(String, u32)> {
         "pwsh",
     ];
 
-    if IS_SUPPORTED_SYSTEM {
-        let sys = System::new_all();
-        let mut process: Option<&Process> = sys.process(Pid::from_u32(process::id()));
+    if let Ok(sys) = System::new_all()
+        && let mut process = sys.process(Pid::from_u32(process::id()))
+    {
         while process.is_some() {
             process = get_parent(&sys, process.unwrap());
             if let Some(shell) = process {
@@ -42,11 +42,7 @@ pub fn find() -> Option<(String, u32)> {
 
 fn get_parent<'a>(sys: &'a System, process: &Process) -> Option<&'a Process> {
     if let Some(ppid) = process.parent() {
-        if let Some(parent) = sys.process(ppid) {
-            Some(parent)
-        } else {
-            None
-        }
+        sys.process(ppid)
     } else {
         None
     }
